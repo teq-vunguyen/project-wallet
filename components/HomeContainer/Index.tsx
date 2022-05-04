@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from 'next/image'
 import { useAppSelector } from '@src/app/hooks';
 import { getUser } from '@src/redux/appSlice';
 import Router from 'next/router'
 import CardATM from "@src/components/Common/CardATM";
 import CardCurency from "@src/components/Common/CardCurency";
+import ModalInformation from "@src/components/Modal/Information";
+
 
 const HomeContainer: React.FC = () => {
+  const [openAsset, setOpenAsset] = useState(false)
   const username = useAppSelector(getUser);
   const listCurrency = [{ type: 'Euro', total: '50 EUR', vnd: '1,531,972 VND' }, { type: 'Yen', total: '10,000 YEN', vnd: '2,103,317 VND' }]
 
@@ -39,7 +42,7 @@ const HomeContainer: React.FC = () => {
           />
           <span className="text-btn opacity-half">Deposit</span>
         </button>
-        <button onClick={()=>{Router.push('/send')}}>
+        <button onClick={() => { Router.push('/send') }}>
           <Image
             src="/images/Send.png"
             className=""
@@ -60,11 +63,14 @@ const HomeContainer: React.FC = () => {
           <span className="text-btn">Swap</span>
         </button>
       </div>
-      <div className="mb-12 ml-12 f-bold fz-16">Assets</div>
+      <div className="mb-12 ml-12 f-bold fz-16" onClick={() => { setOpenAsset(true) }}>Assets</div>
       {
         listCurrency.length && listCurrency.map((item, index) =>
           <CardCurency key={index} type={item.type} total={item.total} totalVnd={item.vnd} />
         )
+      }
+      {
+        openAsset && <ModalInformation handleClose={() => { setOpenAsset(false) }} />
       }
     </div>
   )
