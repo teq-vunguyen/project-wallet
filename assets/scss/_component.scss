@@ -93,7 +93,7 @@
 }
 .overlay-modal {
   position: absolute;
-  width: 375px;
+  width: 100%;
   height: 100vh;
   background-color: #151a3080;
   top: 0;
@@ -132,5 +132,19 @@
   }
   .btn-primary {
     width: 100%;
+  }
+}
+.item-c {
+  padding: 12px 68px; 
+  height: 64px;
+  transition: all ease 0.3s;
+  &:hover {
+    background-color: #EDF1F7;
+  }
+  &_img {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }

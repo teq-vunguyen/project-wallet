@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from 'next/image'
 import { useAppSelector } from '@src/app/hooks';
-import { getUser } from '@src/redux/appSlice';
+import { getUser, getCurrency, getTotalMoney, getAccountNumber } from '@src/redux/appSlice';
 import Router from 'next/router'
 import CardATM from "@src/components/Common/CardATM";
 import CardCurency from "@src/components/Common/CardCurency";
-import ModalInformation from "@src/components/Modal/Information";
 
 
 const HomeContainer: React.FC = () => {
-  const [openAsset, setOpenAsset] = useState(false)
   const username = useAppSelector(getUser);
-  const listCurrency = [{ type: 'Euro', total: '50 EUR', vnd: '1,531,972 VND' }, { type: 'Yen', total: '10,000 YEN', vnd: '2,103,317 VND' }]
+  const listCurrency = useAppSelector(getCurrency);
+  const totalMoney = useAppSelector(getTotalMoney);
+  const accountNum = useAppSelector(getAccountNumber);
 
   return (
     <div className="container home-page">
@@ -30,7 +30,7 @@ const HomeContainer: React.FC = () => {
           height="32px"
         />
       </div>
-      <CardATM />
+      <CardATM accountNum={accountNum} total={totalMoney.total} vnd={totalMoney.vnd} />
       <div className="mt-28 mb-40 flex justify-between align-center list-btn">
         <button>
           <Image
@@ -52,7 +52,7 @@ const HomeContainer: React.FC = () => {
           />
           <span className="text-btn">Send</span>
         </button>
-        <button className="">
+        <button className=" opacity-half">
           <Image
             src="/images/Swap.png"
             className=""
@@ -63,14 +63,11 @@ const HomeContainer: React.FC = () => {
           <span className="text-btn">Swap</span>
         </button>
       </div>
-      <div className="mb-12 ml-12 f-bold fz-16" onClick={() => { setOpenAsset(true) }}>Assets</div>
+      <div className="mb-12 ml-12 f-bold fz-16">Assets</div>
       {
         listCurrency.length && listCurrency.map((item, index) =>
           <CardCurency key={index} type={item.type} total={item.total} totalVnd={item.vnd} />
         )
-      }
-      {
-        openAsset && <ModalInformation handleClose={() => { setOpenAsset(false) }} />
       }
     </div>
   )
