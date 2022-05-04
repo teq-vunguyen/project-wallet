@@ -17,11 +17,11 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="description" content="Management accounts by TEQ" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Provider store={store}>
+      <Provider store={store}>
+        <Layout>
           <Component {...pageProps} />
-        </Provider>
-      </Layout>
+        </Layout>
+      </Provider>
     </>
   );
 };

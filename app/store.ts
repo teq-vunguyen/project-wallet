@@ -5,12 +5,14 @@ import {
 } from '@reduxjs/toolkit';
 import counterReducer from '@src/redux/counterSlice';
 import kanyeReducer from '@src/redux/kanyeSlice';
+import appReducer from '@src/redux/appSlice';
 
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
     kanyeQuote: kanyeReducer,
+    app: appReducer
   },
 });
 

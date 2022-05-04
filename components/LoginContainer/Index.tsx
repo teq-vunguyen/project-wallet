@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import Router from 'next/router'
 import Image from 'next/image'
 import ButtonPrimary from "@src/components/Common/ButtonPrimary";
+import { useAppDispatch, useAppSelector } from '@src/app/hooks';
+import { setLogged, getUser } from '@src/redux/appSlice';
 
 const LoginContainer: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const username = useAppSelector(getUser);
+
   const [passwordShown, setPasswordShown] = useState(false);
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
   const handleSubmit = () => {
-    Router.push('/')
+    dispatch(setLogged())
   }
   return (
     <div className="container login-page">
@@ -25,7 +29,7 @@ const LoginContainer: React.FC = () => {
             height="160px"
           />
         </div>
-        <div className="fz-40 f-bold text-center mt-24 mb-8 color-main">Ronin Wallet</div>
+        <div className="fz-40 f-bold text-center mt-24 mb-8 color-main">{username}</div>
         <div className="mb-24 fz-14 text-center color-main">Your Digital Passport</div>
 
         <div className="color-sub fz-10 mb-5 ml-8 f-bold">ENTER PASSWORD</div>

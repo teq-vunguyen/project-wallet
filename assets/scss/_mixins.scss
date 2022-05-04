@@ -62,6 +62,16 @@ $base-size: 16;
 .flex {
   display: flex;
 }
+.align {
+  &-center {
+    align-items: center;
+  }
+}
+.justify {
+  &-between {
+    justify-content: space-between;
+  }
+}
 .f-bold {
   font-weight: bold;
 }

@@ -55,11 +55,37 @@
     top: -15px;
     width: calc(100% - 40px);
     height: 205px;
-  
   }
   &_btn {
     width: 88px;
     margin: 0 auto;
     margin-top: 24px;
+  }
+}
+
+.home-page {
+  padding: 20px;
+  position: relative;
+  &_bg {
+    background: url('../../public/images/Background.png') no-repeat center center / cover;
+    position: absolute;
+    left: 20px;
+    top: 24px;
+    width: calc(100% - 40px);
+    height: 205px;
+  }
+  .tag-name {
+    background-color: #F7F9FC;
+    border-radius: 8px;
+    padding: 6px 12px;
+    z-index: 1;
+    position: relative;
+    &_dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50px;
+      background-color: #1273EA;
+    }
+
   }
 }
