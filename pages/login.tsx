@@ -1,5 +1,5 @@
 import React from "react";
-import LoginContainer from "@src/components/LoginContainer";
+import LoginContainer from "@src/components/LoginContainer/Index";
 
 const HomePage: React.FC = () => {
   return (
