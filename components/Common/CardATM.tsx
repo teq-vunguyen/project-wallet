@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const CardATM: React.FC = (props) => {
+const CardATM: React.FC = () => {
   return (
     <div className="card-atm">
       <div className="card-atm_infor flex justify-between align-center">
