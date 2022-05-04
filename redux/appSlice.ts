@@ -11,7 +11,7 @@ export type appState = {
 };
 
 const initialState: appState = {
-  loggedIn: false,
+  loggedIn: true,
   name: 'Ronin Wallet',
   accountNumber: '7300 3777 3888 3334'
 };

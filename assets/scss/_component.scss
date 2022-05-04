@@ -23,4 +23,71 @@
   border-radius: 16px;
   padding: 18px 20px 20px 20px;
   position: relative;
+  &_title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    span {
+      color: #8DC9F9;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+  &_infor {
+    padding-bottom: 14px;
+    border-bottom: 1px solid #68B8F8;
+    margin-bottom: 12px;
+  }
+  &_icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+  &_curusd {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  &_curvnd {
+    color: #8DC9F9;
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
+
+.card-curency {
+  width: 100%;
+  background-color: #F7F9FC;
+  border-radius: 8px;
+  padding: 14px 20px 14px 68px;
+  position: relative;
+  margin-bottom: 8px;
+  &_img {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &_vnd {
+    color: #8F9BB3;
+  }
+}
+.nav-bar {
+  width: 100%;
+  height: 56px;
+  position: absolute;
+  box-shadow: 0px 4px 12px #F7F9FC;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &_back {
+    position: absolute;
+    left: 20px;
+    top: 12px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+  }
 }
