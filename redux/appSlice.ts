@@ -1,6 +1,5 @@
 import {
   createSlice,
-  PayloadAction,
 } from '@reduxjs/toolkit';
 import type { RootState } from '@src/app/store';
 
@@ -12,7 +11,7 @@ export type appState = {
 };
 
 const initialState: appState = {
-  loggedIn: true,
+  loggedIn: false,
   name: 'Ronin Wallet',
   accountNumber: '7300 3777 3888 3334'
 };
