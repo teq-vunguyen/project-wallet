@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ButtonPrimary from "@src/components/Common/ButtonPrimary";
 import NavBar from "@src/components/Common/NavBar";
 import Router from 'next/router'
