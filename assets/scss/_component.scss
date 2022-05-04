@@ -1,0 +1,19 @@
+.btn-primary {
+  width: auto;
+  height: 40px;
+  @include flex(center, center);
+  color: #1273EA;
+  background: #F7F9FC;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  &:active {
+    opacity: 0.9;
+  }
+  &_active {
+    background: linear-gradient(256.28deg, #1C94F4 0%, #1273EA 100%);
+    color: #fff;
+  }
+}
