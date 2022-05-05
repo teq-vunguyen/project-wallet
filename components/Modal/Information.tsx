@@ -4,22 +4,22 @@ import { useAppSelector } from '@src/app/hooks';
 import { getTotalMoney, getCurrency } from '@src/redux/appSlice';
 
 interface Props {
-  handleClose: any
-  handleChoose: any
+  handleClose: React.MouseEventHandler<HTMLDivElement>
+  handleChoose: (type: string) => void;
 }
 interface PropsItem {
   index?: number
   type: string
   total: string
   vnd: string
-  click: any
+  click: React.MouseEventHandler<HTMLDivElement>
 }
 const AssetsModal: React.FC<Props> = (props) => {
   const { handleClose, handleChoose } = props
   const totalMoney = useAppSelector(getTotalMoney)
   const listCurrency = useAppSelector(getCurrency);
 
-  const clickItem = (type: any) => {
+  const clickItem = (type: string) => {
     handleChoose(type)
   }
 

@@ -14,7 +14,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           name="viewport"
           content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
         />
-        <meta name="description" content="Management accounts by TEQ" />
+        <meta name="description" content="testing wallet app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Provider store={store}>

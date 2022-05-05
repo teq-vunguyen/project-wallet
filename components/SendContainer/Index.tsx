@@ -16,6 +16,8 @@ const SendContainer: React.FC = () => {
   const [openSend, setOpenSend] = useState(false)
   const [openAsset, setOpenAsset] = useState(false)
   const [idCurrency, setIdCurrency] = useState<any>(null)
+  const [amount, setAmount] = useState<string | number>()
+
 
   useEffect(() => {
     if (listCurrency && listCurrency.length) {
@@ -36,6 +38,18 @@ const SendContainer: React.FC = () => {
     const find = listCurrency.find(i => i.type === type)
     if (find && find.type) return find.total
     return ''
+  }
+  const onChangeAmount = (value: string | number) => {
+    setAmount(value)
+  }
+  const setMaxAmount = (id: string) => {
+    const dataAmount = getMaxCurrency(id).split(' ')
+    if (dataAmount && dataAmount.length) {
+      const value = dataAmount[0]
+      if (value && value.length && typeof value === 'string') {
+        setAmount(parseFloat(value.replace(/,/g, '')))
+      }
+    }
   }
 
   return (
@@ -70,8 +84,8 @@ const SendContainer: React.FC = () => {
         <div className="fz-10 f-bold">AVAILABLE: {getMaxCurrency(idCurrency)}</div>
       </div>
       <div className="relative">
-        <input type="number" />
-        <button className="btn-max">MAX</button>
+        <input type="number" value={amount} onChange={e => onChangeAmount(e.target.value)} />
+        <button className="btn-max" onClick={() => setMaxAmount(idCurrency)}>MAX</button>
       </div>
       <div className="flex align-center justify-between btn-bottom">
         <ButtonPrimary text="Cancel" onClick={() => Router.back()} />
