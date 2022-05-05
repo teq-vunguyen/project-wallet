@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig,  } from 'axios';
-import { loadFromStorage } from "@src/utils/storage";
 
 const baseHeaders = (config: AxiosRequestConfig) => ({
   "Content-Type": "application/json, multipart/form-data",
@@ -10,7 +9,7 @@ const baseHeaders = (config: AxiosRequestConfig) => ({
 const appAPI = axios.create();
 appAPI.defaults.baseURL = process.env.NEXT_PUBLIC_SERVER_URL;
 appAPI.interceptors.request.use((config: AxiosRequestConfig) => {
-  const { token } = loadFromStorage("user") || ''
+  const token = ''
   return {
     ...config,
     headers: {
